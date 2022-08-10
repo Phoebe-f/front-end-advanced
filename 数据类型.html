@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据类型</title>
+</head>
+
+<body>
+  <script>
+    // js数据类型分为两大类：基本数据类型、引用数据类型
+    // 基本数据类型存储在栈空间，引用数据类型存储在堆空间。
+    /*
+      1. 基本数据类型
+        String, Number, Boolean, Undefined, Null, Symbol, bigint
+      2. 引用数据类型
+        Function, Object(Object中包含Set, Array, Map, Math, RegExp)
+    */
+
+    //--------判断数据类型
+
+    // 方法一、typeof
+    //        基本数据类型中除了null，其他类型都可以判断出来,typeof null 的返回值为object。
+    //        引用数据类型，可以判断function，其余返回的也都是ob
+    console.log(typeof 1); //number
+    console.log(typeof 'string'); //string
+    console.log(typeof arr); //undefined
+    console.log(typeof true); //boolean
+    console.log(typeof Symbol('1')); //symbol
+    console.log(typeof BigInt('10')); //bigint
+    console.log(typeof null);//object
+    console.log(typeof function test(){});//function
+    console.log(typeof {a:'1'});//object
+
+    // 方法二、instanceof
+    //        instanceof内部通过原型链的方式来判断是否构建函数的实例，一般用来判断具体的数据类型
+    let str =new String("p")
+    console.log('pp' instanceof String);//true
+
+    // 方法三、Object.prototype.toString
+    console.log(Object.prototype.toString.call(1));//[object Number]
+    console.log(Object.prototype.toString.call('str'));//[object String]
+    console.log(Object.prototype.toString.call(undefined));//[object Undefined]
+    console.log(Object.prototype.toString.call(null));//[object Null]
+    console.log(Object.prototype.toString.call(true));//[object Boolean]
+    console.log(Object.prototype.toString.call(Symbol('1')));//[object Symbol]
+    console.log(Object.prototype.toString.call(function test(){}));//[object Function]
+    console.log(Object.prototype.toString.call({a:'1'}));//[object Object]
+
+
+    // is API
+    console.log(Array.isArray([]));//true
+    console.log(isNaN('.'));//true  
+
+  
+  </script>
+</body>
+
+</html>
