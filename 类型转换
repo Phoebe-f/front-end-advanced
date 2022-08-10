@@ -1,0 +1,33 @@
+类型转换：强制转换、隐式转换
+
+1、强制转换：指通过编码在类型之间转换。如toString、Number
+2、隐式转换：指通过不同的运算符实现类型的转换。如+'1'
+
+一、转为字符串类型
+  1. toString()
+  console.log(Object.protutype.toString.call((1).toString()));//string
+
+  2. String();//强制类型转换
+  console.log(Object.prototype.toString.call(String(1)));//[object String]
+
+  3.+''
+  console.log(typeof (2 + ''));//string
+
+二、转为数字类型
+  1. Number
+    注意： a. 如果字符串全为数字，转换后为数字类型
+          b. 如果字符串含有非数字类型，转换后为NaN
+          c. 字符串为空，转换后为0
+
+  2.parseInt
+    通过这个方法，可以将以数字开头的字符串中的数字转换为数字类型。若不是以数字开头，则转换为NaN。空字符串，布尔型，null，undefined进行转换只能转换为NaN
+
+  3.parseFloat同理
+
+  4.隐式转换
+    通过与数字型数字进行加减乘除运算，将其转换为数字类型。可以理解为调用Number()方法
+    console.log(typeof (+'1'));//number
+
+三、转换为布尔
+  1.Boolean()
+  其他类型通过这个方法，均可以转换为true或者false。空字符串，null，undefined，NaN,0均转为false，其他的全为true。

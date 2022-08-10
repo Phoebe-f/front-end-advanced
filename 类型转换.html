@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    console.log(Object.prototype.toString.call(String(1))); //[object String]
+    // let a = 2
+    // console.log(typeof (2 + ''));
+    // console.log(parseInt(undefined));
+    // console.log(typeof (+'1'));
+    const a = {
+      b: 2,
+      foo: function () {
+        console.log(this.b)
+      }
+    }
+
+    function b(foo) {
+      // 输出什么？
+      foo()
+    }
+
+    b(a.foo)
+    a.foo()
+
+    obj = {
+      func() {
+        const arrowFunc = () => {
+          console.log(this._name)
+        }
+
+        return arrowFunc
+      },
+
+      _name: "obj",
+    }
+
+    obj.func()()//obj
+
+    func = obj.func
+    func()()//undefined
+
+    obj.func.bind({
+      _name: "newObj"
+    })()()//newObj
+
+    obj.func.bind()()()//obj
+
+    obj.func.bind({
+      _name: "bindObj"
+    }).apply({
+      _name: "applyObj"
+    })()
+  </script>
+</body>
+
+</html>
